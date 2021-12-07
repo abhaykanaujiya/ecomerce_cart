@@ -1,12 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./index.css";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import ProductList from "./components/homepage/ProductList";
+import Header from "./Header";
+import Cart from "./components/cart_page/Cart";
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-    
-    </div>
+    <Router>
+      <Header/>
+      <Switch>
+        <Route path="/" exact component={ProductList} />
+        <Route path="/cart" exact component={Cart} />
+      </Switch>
+    </Router>
   );
 }
-
-export default App;
