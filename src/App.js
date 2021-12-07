@@ -12,6 +12,7 @@ export default function App() {
       <Switch>
         <Route path="/" exact component={ProductList} />
         <Route path="/cart" exact component={Cart} />
+        <Route path="/home" component={ProductList} />
       </Switch>
     </Router>
   );
