@@ -4,7 +4,7 @@ const INITIAL_STATE = {
 };
 
 export default function ProductDetailReducer(state = INITIAL_STATE, action) {
-  console.log(action.payload, "ProductDetailReducer");
+  console.log(action.payload, "ProductDetailReducerss");
   switch (action.type) {
     case "PRODUUCT":
       return {
@@ -15,7 +15,12 @@ export default function ProductDetailReducer(state = INITIAL_STATE, action) {
       return {
         ...state,
         productList: action.payload.updatedList,
-        cartItems: action.payload.cartList,
+        cartItems: [...state.cartItems, action.payload.cartList],
+      };
+    case "UPDATE_TO_CART":
+      return {
+        ...state,
+        cartItems: [...action.payload.cartItems],
       };
 
     default:

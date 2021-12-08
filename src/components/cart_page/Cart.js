@@ -1,9 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
 // import { getCartAction } from "../../action/cartAction";
-
+import { getHomePageData, handleAddToCart } from "../../action/pdpAction";
 const Cart = (props) => {
-  // const { cartItems } = props;
+  console.log(props.cartItems, "cart");
   return (
     <div
       className='cart-items'
@@ -30,8 +30,7 @@ const Cart = (props) => {
             <div className='cart-items-name'>{item.name}</div>
             <div className='cart-item-price'>{item.price}</div>
 
-            <div className='cart-items-quantity'>quantity:{}</div>
-            <div></div>
+            <div className='cart-items-quantity'>quantity:{item.quantity}</div>
           </div>
         ))}
       </div>
@@ -39,8 +38,8 @@ const Cart = (props) => {
   );
 };
 
-function mapStateToProps({ cartReducer }) {
-  const { cartItems } = cartReducer;
+function mapStateToProps({ PdpReducer }) {
+  const { cartItems } = PdpReducer;
   return {
     cartItems,
   };

@@ -1,8 +1,12 @@
 import React from "react";
 import { useEffect } from "react";
 import { connect } from "react-redux";
-import { getHomePageData, handleAddToCart } from "../../action/pdpAction";
-import { getCartAction } from "../../action/cartAction";
+import {
+  getHomePageData,
+  handleAddToCart,
+  handleIncrease,
+} from "../../action/pdpAction";
+//import { getCartAction } from "../../action/cartAction";
 import "./productList.css";
 
 function ProductList(props) {
@@ -12,6 +16,9 @@ function ProductList(props) {
 
   const addToCart = (selectedProduct) => {
     props.handleAddToCart(selectedProduct, props.productList);
+  };
+  const increaseCartItem = (selectedProduct) => {
+    props.handleIncrease(selectedProduct, props.cartItems);
   };
   console.log(props.cartItems, "devsfdsjfgskfkh");
   return (
@@ -49,7 +56,10 @@ function ProductList(props) {
                     -
                   </button>
                   {product.quantity}
-                  <button className='button' onClick={() => addToCart(product)}>
+                  <button
+                    className='button'
+                    onClick={() => increaseCartItem(product)}
+                  >
                     +
                   </button>
                 </>
@@ -62,7 +72,7 @@ function ProductList(props) {
   );
 }
 
-function mapStateToProps({ PdpReducer, cartReducer }) {
+function mapStateToProps({ PdpReducer }) {
   const { productList, cartItems } = PdpReducer;
   return {
     productList,
@@ -72,6 +82,6 @@ function mapStateToProps({ PdpReducer, cartReducer }) {
 
 export default connect(mapStateToProps, {
   getHomePageData,
-  getCartAction,
+  handleIncrease,
   handleAddToCart,
 })(ProductList);

@@ -1,4 +1,4 @@
-import { CarouselItem } from "react-bootstrap";
+
 
 const INITIAL_STATE = {
   cartItems: [],
