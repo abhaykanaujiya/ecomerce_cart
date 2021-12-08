@@ -1,9 +1,12 @@
 import React from "react";
 import { useEffect } from "react";
 import { connect } from "react-redux";
-import { getHomePageData, handleAddToCart } from "../../action/pdpAction";
-import { getCartAction } from "../../action/cartAction";
-import Cart from "../cart_page/Cart";
+import {
+  getHomePageData,
+  handleAddToCart,
+  handleIncrease,
+} from "../../action/pdpAction";
+//import { getCartAction } from "../../action/cartAction";
 import "./productList.css";
 
 function ProductList(props) {
@@ -14,57 +17,62 @@ function ProductList(props) {
   const addToCart = (selectedProduct) => {
     props.handleAddToCart(selectedProduct, props.productList);
   };
+  const increaseCartItem = (selectedProduct) => {
+    props.handleIncrease(selectedProduct, props.cartItems);
+  };
   console.log(props.cartItems, "devsfdsjfgskfkh");
   return (
-    <div className="render-cards">
+    <div className='render-cards'>
       {props.productList?.map((product) => (
-        <div className="cart-product-body">
+        <div className='cart-product-body'>
           <div>
             <img
-              className="cart-product-image"
+              className='cart-product-image'
               src={product.images}
-              alt="img"
+              alt='img'
             />
 
-            <div className="product-rating-container">
+            <div className='product-rating-container'>
               {product.supplier_reviews_summary.average_rating}
             </div>
           </div>
 
-          <div div className="product-detail">
-            <div className="product-detail-name">
+          <div div className='product-detail'>
+            <div className='product-detail-name'>
               <h5>{product.name}</h5>
             </div>
 
-            <div className="product-detail-price">{product.price}</div>
+            <div className='product-detail-price'>{product.price}</div>
           </div>
           <div>
-          <span>
-            {product.quantity === 0 ? (
-              <button className="button" onClick={() => addToCart(product)}>
-                Add to cart
-              </button>
-            ) : ( 
-              <>
-                <button className="button" onClick={() => addToCart(product)}>
-                  -
+            <span>
+              {product.quantity === 0 ? (
+                <button className='button' onClick={() => addToCart(product)}>
+                  Add to cart
                 </button>
-                {product.quantity}
-                <button className="button" onClick={() => addToCart(product)}>
-                  +
-                </button>
-              </>
-            )}
+              ) : (
+                <>
+                  <button className='button' onClick={() => addToCart(product)}>
+                    -
+                  </button>
+                  {product.quantity}
+                  <button
+                    className='button'
+                    onClick={() => increaseCartItem(product)}
+                  >
+                    +
+                  </button>
+                </>
+              )}
             </span>
-            </div>
+          </div>
         </div>
       ))}
-      <Cart />
     </div>
   );
 }
 
-function mapStateToProps({ PdpReducer, cartReducer }) {
+function mapStateToProps({ PdpReducer }) {
   const { productList, cartItems } = PdpReducer;
   return {
     productList,
@@ -74,6 +82,6 @@ function mapStateToProps({ PdpReducer, cartReducer }) {
 
 export default connect(mapStateToProps, {
   getHomePageData,
-  getCartAction,
+  handleIncrease,
   handleAddToCart,
 })(ProductList);
