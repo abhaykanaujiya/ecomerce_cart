@@ -22,6 +22,16 @@ export default function ProductDetailReducer(state = INITIAL_STATE, action) {
         ...state,
         cartItems: [...action.payload.cartItems],
       };
+    case "DECREASE_CART_ITEMS":
+      return {
+        ...state,
+        cartItems: [...action.payload.cartItems],
+      };
+    case "SET_QUANTITY":
+      return {
+        ...state,
+        productList: action.payload.newUpdatedList,
+      };
 
     default:
       return state;

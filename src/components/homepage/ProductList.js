@@ -5,8 +5,9 @@ import {
   getHomePageData,
   handleAddToCart,
   handleIncrease,
+  handleDecrease,
+  handleDecreaseQuantity,
 } from "../../action/pdpAction";
-//import { getCartAction } from "../../action/cartAction";
 import "./productList.css";
 
 function ProductList(props) {
@@ -19,6 +20,12 @@ function ProductList(props) {
   };
   const increaseCartItem = (selectedProduct) => {
     props.handleIncrease(selectedProduct, props.cartItems);
+  };
+  const decreaseCartItems = (selectedProduct) => {
+    props.handleDecrease(selectedProduct, props.cartItems);
+  };
+  const decreaseQuantity = (selectedProduct) => {
+    props.handleDecreaseQuantity(selectedProduct, props.productList);
   };
   console.log(props.cartItems, "devsfdsjfgskfkh");
   return (
@@ -52,7 +59,14 @@ function ProductList(props) {
                 </button>
               ) : (
                 <>
-                  <button className='button' onClick={() => addToCart(product)}>
+                  <button
+                    className='button'
+                    onClick={
+                      product.quantity > 1
+                        ? () => decreaseCartItems(product)
+                        : () => decreaseQuantity(product)
+                    }
+                  >
                     -
                   </button>
                   {product.quantity}
@@ -83,5 +97,7 @@ function mapStateToProps({ PdpReducer }) {
 export default connect(mapStateToProps, {
   getHomePageData,
   handleIncrease,
+  handleDecrease,
   handleAddToCart,
+  handleDecreaseQuantity,
 })(ProductList);
