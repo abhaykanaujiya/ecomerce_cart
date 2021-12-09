@@ -1,9 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
-// import { getCartAction } from "../../action/cartAction";
-import { getHomePageData, handleAddToCart } from "../../action/pdpAction";
+import { handleIncrease, handleDecrease } from "../../action/pdpAction";
+
 const Cart = (props) => {
   console.log(props.cartItems, "cart");
+
   return (
     <div
       className='cart-items'
@@ -20,7 +21,7 @@ const Cart = (props) => {
       )}
       <div>
         {props.cartItems.map((item) => (
-          <div key={item.id} className='cart-item-list'>
+          <div key={item.id} className='cart-item-card'>
             <img
               className='cart-items-image'
               style={{ width: "120px", height: "120px" }}
@@ -29,10 +30,23 @@ const Cart = (props) => {
             />
             <div className='cart-items-name'>{item.name}</div>
             <div className='cart-item-price'>{item.price}</div>
-
-            <div className='cart-items-quantity'>quantity:{item.quantity}</div>
+            <span>
+              <button className='button' onClick={() => handleDecrease(item)}>
+                -
+              </button>
+              Qty:{item.quantity}
+              <button className='button' onClick={() => handleIncrease(item)}>
+                +
+              </button>
+            </span>
           </div>
         ))}
+      </div>
+      <div className='total-price'>
+        {props.cartItems.map((p) => {
+          const total = p.price * p.quantity;
+          return <>Total Price : {total}</>;
+        })}
       </div>
     </div>
   );
@@ -45,4 +59,7 @@ function mapStateToProps({ PdpReducer }) {
   };
 }
 
-export default connect(mapStateToProps)(Cart);
+export default connect(mapStateToProps, {
+  handleIncrease,
+  handleDecrease,
+})(Cart);
