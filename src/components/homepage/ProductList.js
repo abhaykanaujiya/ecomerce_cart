@@ -16,18 +16,23 @@ function ProductList(props) {
   }, []);
 
   const addToCart = (selectedProduct) => {
-    props.handleAddToCart(selectedProduct, props.productList);
+    props.handleAddToCart(selectedProduct, props.productList, props.cartItems);
   };
   const increaseCartItem = (selectedProduct) => {
-    props.handleIncrease(selectedProduct, props.cartItems);
+    props.handleIncrease(selectedProduct, props.productList, props.cartItems);
   };
   const decreaseCartItems = (selectedProduct) => {
-    props.handleDecrease(selectedProduct, props.cartItems);
+    props.handleDecrease(selectedProduct, props.productList, props.cartItems);
   };
   const decreaseQuantity = (selectedProduct) => {
-    props.handleDecreaseQuantity(selectedProduct, props.productList);
+    props.handleDecreaseQuantity(
+      selectedProduct,
+      props.productList,
+      props.cartItems
+    );
   };
-  console.log(props.cartItems, "devsfdsjfgskfkh");
+
+  console.log(props.cartItems, props.productList, "product list");
   return (
     <div className='render-cards'>
       {props.productList?.map((product) => (
@@ -88,6 +93,7 @@ function ProductList(props) {
 
 function mapStateToProps({ PdpReducer }) {
   const { productList, cartItems } = PdpReducer;
+  console.log(cartItems, "cartItem reducercers data");
   return {
     productList,
     cartItems,
