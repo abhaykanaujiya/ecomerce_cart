@@ -4,6 +4,18 @@ import { handleIncrease, handleDecrease } from "../../action/pdpAction";
 import "./cart.css";
 
 const Cart = (props) => {
+  const products = props.productList;
+  const filterProduct = products.filter((items) => items.quantity > 0);
+
+  const calculation = () => {
+    let sum = 0;
+    let i;
+    for (i = 0; i < filterProduct.length; i++) {
+      sum = sum + filterProduct[i].price * filterProduct[i].quantity;
+    }
+    return sum;
+  };
+
   return (
     <div className='cart-body'>
       <div className='cart-items-header'>
@@ -14,38 +26,36 @@ const Cart = (props) => {
       )}
 
       <div className='cart-items-body'>
-        {props.productList
-          .filter((items) => items.quantity > 0)
-          .map((item) => (
-            <div key={item.id} className='cart-item-card'>
-              <div>
-                <img
-                  className='cart-items-image'
-                  src={item.images}
-                  alt={item.name}
-                />
+        {filterProduct.map((item) => (
+          <div key={item.id} className='cart-item-card'>
+            <div>
+              <img
+                className='cart-items-image'
+                src={item.images}
+                alt={item.name}
+              />
 
-                <span className='cart-item-detail-body'>
-                  <div className='cart-items-name'>{item.name}</div>
-                  <div className='cart-item-price'>{item.price}</div>
-                </span>
-              </div>
-              <div className='buttons'>
-                <span>
-                  <button
-                    className='button'
-                    onClick={() => handleDecrease(item)}
-                  ></button>
-                  Qty:{item.quantity}
-                  <button
-                    className='button'
-                    onClick={() => handleIncrease(item)}
-                  ></button>
-                </span>
-              </div>
+              <span className='cart-item-detail-body'>
+                <div className='cart-items-name'>{item.name}</div>
+                <div className='cart-item-price'>{item.price}</div>
+              </span>
             </div>
-          ))}
-        <div>ItemsPrice:{}</div>
+            <div className='buttons'>
+              <span>
+                <button
+                  className='button'
+                  onClick={() => handleDecrease(item)}
+                ></button>
+                Qty:{item.quantity}
+                <button
+                  className='button'
+                  onClick={() => handleIncrease(item)}
+                ></button>
+              </span>
+            </div>
+          </div>
+        ))}
+        <div>Total price:{calculation()}</div>
       </div>
     </div>
   );
