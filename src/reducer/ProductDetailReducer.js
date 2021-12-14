@@ -5,8 +5,10 @@ import {
   DECREASE_CART_ITEMS,
   SET_QUANTITY,
 } from "../action/ActionConstants";
+import productList from "../components/json/ProductsData.json";
+
 const INITIAL_STATE = {
-  productList: [],
+  productList: [...productList.payload.products],
   cartItems: [],
 };
 
@@ -22,24 +24,24 @@ export default function ProductDetailReducer(state = INITIAL_STATE, action) {
       return {
         ...state,
         productList: [...action.payload.updatedProductList],
-        cartItems: [...action.payload.cartItem],
+        //cartItems: [...action.payload.cartItem],
       };
     case UPDATE_TO_CART:
       return {
         ...state,
         productList: [...action.payload.updatedProductList],
-        cartItems: [...action.payload.cartList],
+        //cartItems: [...action.payload.cartList],
       };
     case DECREASE_CART_ITEMS:
       return {
         ...state,
-        productList: [...action.payload.decreaseProductQuantity],
+        productList: [...action.payload.decreaseProductList],
       };
     case SET_QUANTITY:
       return {
         ...state,
         productList: action.payload.newUpdatedList,
-        cartItems: action.payload.cartItems,
+        //cartItems: action.payload.cartItems,
       };
 
     default:

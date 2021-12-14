@@ -9,7 +9,7 @@
         "original_price": 518,
         "transient_price": 418,
         "discount": 19,
-        
+        "quantity": 0,
         "images": [
           "https://images.meesho.com/images/products/16789034/382e4_512.jpg"
         ],
@@ -51,6 +51,8 @@
         "price": 981,
         "original_price": 981,
         "transient_price": 881,
+        "quantity": 0,
+
         "discount": 10,
         "images": [
           "https://images.meesho.com/images/products/43829596/3xwbh_512.jpg"
@@ -94,6 +96,8 @@
         "original_price": 367,
         "transient_price": 267,
         "discount": 27,
+        "quantity": 0,
+
         "images": [
           "https://images.meesho.com/images/products/44822930/vl71u_512.jpg"
         ],
@@ -136,6 +140,8 @@
         "original_price": 458,
         "transient_price": 358,
         "discount": 22,
+        "quantity": 0,
+
         "images": [
           "https://images.meesho.com/images/products/11105750/c8ebe_512.jpg"
         ],
@@ -178,6 +184,8 @@
         "original_price": 287,
         "transient_price": 201,
         "discount": 30,
+        "quantity": 0,
+
         "images": [
           "https://images.meesho.com/images/products/53807918/pd3yw_512.jpg"
         ],
@@ -220,6 +228,8 @@
         "original_price": 589,
         "transient_price": 489,
         "discount": 17,
+        "quantity": 0,
+
         "images": [
           "https://images.meesho.com/images/products/51910561/yaiua_512.jpg"
         ],
@@ -256,6 +266,8 @@
         "original_price": 374,
         "transient_price": 274,
         "discount": 27,
+        "quantity": 0,
+
         "images": [
           "https://images.meesho.com/images/products/44752187/gruap_512.jpg"
         ],
@@ -292,6 +304,8 @@
         "original_price": 389,
         "transient_price": 289,
         "discount": 26,
+        "quantity": 0,
+
         "images": [
           "https://images.meesho.com/images/products/53445265/pvl4w_512.jpg"
         ],
@@ -334,6 +348,8 @@
         "original_price": 362,
         "transient_price": 262,
         "discount": 28,
+        "quantity": 0,
+
         "images": [
           "https://images.meesho.com/images/products/14894528/95601_512.jpg"
         ],
@@ -376,6 +392,8 @@
         "original_price": 361,
         "transient_price": 261,
         "discount": 28,
+        "quantity": 0,
+
         "images": [
           "https://images.meesho.com/images/products/48471375/nppql_512.jpg"
         ],
@@ -418,6 +436,8 @@
         "original_price": 424,
         "transient_price": 324,
         "discount": 24,
+        "quantity": 0,
+
         "images": [
           "https://images.meesho.com/images/products/8447171/737fa_512.jpg"
         ],
@@ -460,6 +480,8 @@
         "original_price": 468,
         "transient_price": 368,
         "discount": 21,
+        "quantity": 0,
+
         "images": [
           "https://images.meesho.com/images/products/7516379/4ef22_512.jpg"
         ],
@@ -502,6 +524,8 @@
         "original_price": 406,
         "transient_price": 306,
         "discount": 25,
+        "quantity": 0,
+
         "images": [
           "https://images.meesho.com/images/products/2899926/1_512.jpg"
         ],
@@ -544,6 +568,8 @@
         "original_price": 609,
         "transient_price": 509,
         "discount": 16,
+        "quantity": 0,
+
         "images": [
           "https://images.meesho.com/images/products/18104385/b5824_512.jpg"
         ],
@@ -586,6 +612,8 @@
         "original_price": 488,
         "transient_price": 388,
         "discount": 20,
+        "quantity": 0,
+
         "images": [
           "https://images.meesho.com/images/products/34652107/rs2ao_512.jpg"
         ],
@@ -629,6 +657,8 @@
         "original_price": 397,
         "transient_price": 297,
         "discount": 25,
+        "quantity": 0,
+
         "images": [
           "https://images.meesho.com/images/products/47839852/nvp3u_512.jpg"
         ],
@@ -665,6 +695,8 @@
         "original_price": 417,
         "transient_price": 317,
         "discount": 24,
+        "quantity": 0,
+
         "images": [
           "https://images.meesho.com/images/products/51220816/4zzbq_512.jpg"
         ],
@@ -694,6 +726,8 @@
         "price": 534,
         "original_price": 534,
         "transient_price": 434,
+        "quantity": 0,
+
         "discount": 19,
         "images": [
           "https://images.meesho.com/images/products/38147370/npysj_512.jpg"
@@ -735,6 +769,8 @@
         "slug": "new-litchi-silk-bandhani-saree",
         "price": 831,
         "original_price": 831,
+        "quantity": 0,
+
         "transient_price": 731,
         "discount": 12,
         "images": [
@@ -766,6 +802,8 @@
         "price": 500,
         "original_price": 500,
         "transient_price": 400,
+        "quantity": 0,
+
         "discount": 20,
         "images": [
           "https://images.meesho.com/images/products/45365653/0d6pb_512.jpg"

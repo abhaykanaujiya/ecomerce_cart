@@ -12,7 +12,8 @@ import "./productList.css";
 
 function ProductList(props) {
   useEffect(() => {
-    props.getHomePageData();
+    // props.getHomePageData();
+    console.log(props.productList, "hrll9");
   }, []);
 
   const addToCart = (selectedProduct) => {
@@ -51,9 +52,8 @@ function ProductList(props) {
 
           <div div className='product-detail'>
             <div className='product-detail-name'>
-              <h5>{product.name}</h5>
+              <div>{product.name}</div>
             </div>
-
             <div className='product-detail-price'>{product.price}</div>
           </div>
           <div>
@@ -65,7 +65,7 @@ function ProductList(props) {
               ) : (
                 <>
                   <button
-                    className='button'
+                    className='button-decrease'
                     onClick={
                       product.quantity > 1
                         ? () => decreaseCartItems(product)
@@ -76,7 +76,7 @@ function ProductList(props) {
                   </button>
                   {product.quantity}
                   <button
-                    className='button'
+                    className='button-increase'
                     onClick={() => increaseCartItem(product)}
                   >
                     +

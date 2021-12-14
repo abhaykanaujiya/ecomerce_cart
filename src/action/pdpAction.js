@@ -32,7 +32,7 @@ export const handleAddToCart = (selectedProduct, productList, cartItems) => {
       type: ADD_TO_CART,
       payload: {
         updatedProductList: [...updatedProductList],
-        cartItem: [...cartItems, selectedProduct],
+        //cartItem: [...cartItems, selectedProduct],
       },
     });
   };
@@ -57,7 +57,7 @@ export const handleIncrease = (selectedProduct, productList, cartItems) => {
       type: UPDATE_TO_CART,
       payload: {
         updatedProductList: [...updatedNewProduct],
-        cartList: [...cartItems],
+        //cartList: [...cartItems],
       },
     });
   };
@@ -74,7 +74,7 @@ export const handleDecrease = (selectedProduct, cartItems) => {
     });
     dispatch({
       type: DECREASE_CART_ITEMS,
-      payload: { cartItems: [...updatedCart] },
+      payload: {decreaseProductList: [...updatedCart] },
     });
   };
 };
