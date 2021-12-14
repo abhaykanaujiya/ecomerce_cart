@@ -12,22 +12,28 @@ import "./productList.css";
 
 function ProductList(props) {
   useEffect(() => {
-    props.getHomePageData();
+    // props.getHomePageData();
+    console.log(props.productList, "hrll9");
   }, []);
 
   const addToCart = (selectedProduct) => {
-    props.handleAddToCart(selectedProduct, props.productList);
+    props.handleAddToCart(selectedProduct, props.productList, props.cartItems);
   };
   const increaseCartItem = (selectedProduct) => {
-    props.handleIncrease(selectedProduct, props.cartItems);
+    props.handleIncrease(selectedProduct, props.productList, props.cartItems);
   };
   const decreaseCartItems = (selectedProduct) => {
-    props.handleDecrease(selectedProduct, props.cartItems);
+    props.handleDecrease(selectedProduct, props.productList, props.cartItems);
   };
   const decreaseQuantity = (selectedProduct) => {
-    props.handleDecreaseQuantity(selectedProduct, props.productList);
+    props.handleDecreaseQuantity(
+      selectedProduct,
+      props.productList,
+      props.cartItems
+    );
   };
-  console.log(props.cartItems, "devsfdsjfgskfkh");
+
+  console.log(props.cartItems, props.productList, "product list");
   return (
     <div className='render-cards'>
       {props.productList?.map((product) => (
@@ -46,9 +52,8 @@ function ProductList(props) {
 
           <div div className='product-detail'>
             <div className='product-detail-name'>
-              <h5>{product.name}</h5>
+              <div>{product.name}</div>
             </div>
-
             <div className='product-detail-price'>{product.price}</div>
           </div>
           <div>
@@ -60,7 +65,7 @@ function ProductList(props) {
               ) : (
                 <>
                   <button
-                    className='button'
+                    className='button-decrease'
                     onClick={
                       product.quantity > 1
                         ? () => decreaseCartItems(product)
@@ -71,7 +76,7 @@ function ProductList(props) {
                   </button>
                   {product.quantity}
                   <button
-                    className='button'
+                    className='button-increase'
                     onClick={() => increaseCartItem(product)}
                   >
                     +
@@ -88,6 +93,7 @@ function ProductList(props) {
 
 function mapStateToProps({ PdpReducer }) {
   const { productList, cartItems } = PdpReducer;
+  console.log(cartItems, "cartItem reducercers data");
   return {
     productList,
     cartItems,

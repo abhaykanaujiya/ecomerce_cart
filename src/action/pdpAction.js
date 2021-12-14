@@ -1,3 +1,10 @@
+import {
+  PRODUUCT,
+  ADD_TO_CART,
+  UPDATE_TO_CART,
+  DECREASE_CART_ITEMS,
+  SET_QUANTITY,
+} from "../action/ActionConstants";
 import productList from "../components/json/ProductsData.json";
 
 export const getHomePageData = (data) => {
@@ -7,12 +14,12 @@ export const getHomePageData = (data) => {
       quantity: 0,
     }));
     console.log(newProductList, "newProductListinitial");
-    dispatch({ type: "PRODUUCT", payload: [...newProductList] });
+    dispatch({ type: PRODUUCT, payload: [...newProductList] });
   };
 };
 
-export const handleAddToCart = (selectedProduct, productList) => {
-  console.log(productList, "handleAddToCart");
+export const handleAddToCart = (selectedProduct, productList, cartItems) => {
+  console.log(productList, cartItems, "handleAddToCart");
   return (dispatch) => {
     let updatedProductList = productList;
     updatedProductList.map((product) => {
@@ -20,31 +27,37 @@ export const handleAddToCart = (selectedProduct, productList) => {
         product.quantity = product.quantity + 1;
       }
     });
+
     dispatch({
-      type: "ADD_TO_CART",
+      type: ADD_TO_CART,
       payload: {
-        updatedList: [...updatedProductList],
-        cartList: selectedProduct,
+        updatedProductList: [...updatedProductList],
+        //cartItem: [...cartItems, selectedProduct],
       },
     });
   };
 };
 
-export const handleIncrease = (selectedProduct, cartItems) => {
-  console.log(cartItems, selectedProduct, "handle-Increases");
+export const handleIncrease = (selectedProduct, productList, cartItems) => {
   return (dispatch) => {
-    let updatedCart = cartItems;
-    updatedCart.forEach((item) => {
-      console.log(item, "mapp");
+    let updatedNewProduct = productList;
+    updatedNewProduct.forEach((item) => {
       if (item.product_id === selectedProduct.product_id) {
         item.quantity = item.quantity + 1;
       }
     });
-    console.log(updatedCart, " updatedCart handleIncrease");
+    // let updatedNewCart = cartItems;
+    // updatedNewCart.map((items) => {
+    //   if (items.product_id === selectedProduct.product_id) {
+    //     items.quantity = items.quantity + 1;
+    //   }
+    // });
+    console.log(cartItems, productList, " updatedNewCart");
     dispatch({
-      type: "UPDATE_TO_CART",
+      type: UPDATE_TO_CART,
       payload: {
-        cartItems: [...updatedCart],
+        updatedProductList: [...updatedNewProduct],
+        //cartList: [...cartItems],
       },
     });
   };
@@ -60,8 +73,8 @@ export const handleDecrease = (selectedProduct, cartItems) => {
       }
     });
     dispatch({
-      type: "DECREASE_CART_ITEMS",
-      payload: { cartItems: [...updatedCart] },
+      type: DECREASE_CART_ITEMS,
+      payload: {decreaseProductList: [...updatedCart] },
     });
   };
 };
@@ -76,7 +89,7 @@ export const handleDecreaseQuantity = (selectedProduct, productList) => {
       }
     });
     dispatch({
-      type: "SET_QUANTITY",
+      type: SET_QUANTITY,
       payload: {
         newUpdatedList: [...setQuantity],
       },
