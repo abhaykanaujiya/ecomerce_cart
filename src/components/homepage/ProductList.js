@@ -56,7 +56,7 @@ function ProductList(props) {
             </div>
             <div className='product-detail-price'>{product.price}</div>
           </div>
-          <div>
+          <div className="button-header">
             <span>
               {product.quantity === 0 ? (
                 <button className='button' onClick={() => addToCart(product)}>

@@ -1,10 +1,10 @@
 .cart-product-body {
   border: 0px solid rgba(235, 238, 237, 0.966);
   box-shadow: 0 2px 20px rgb(0 0 0 / 20%);
-  margin-bottom: 10px;
+  margin-bottom: 9px;
   border-radius: 2%;
   padding: 30px;
-  width: 200px;
+  width: 197px;
   height: 326px;
 }
 
@@ -17,6 +17,9 @@
   flex-wrap: wrap;
   justify-content: space-around;
   background-color: rgb(243, 239, 239);
+}
+.product-detail {
+  text-align: center;
 }
 
 .cart-product-image {
@@ -37,6 +40,10 @@
 }
 .product-detail-price {
   margin-top: 10px;
+}
+.button-header {
+  display: flex;
+  justify-content: center;
 }
 /* .card-header {
   border: "1px solid #d3d3d3";
