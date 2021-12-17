@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import { handleIncrease, handleDecrease } from "../../action/pdpAction";
 import "./cart.css";
@@ -6,7 +6,7 @@ import "./cart.css";
 const Cart = (props) => {
   const products = props.productList;
   const filterProduct = products.filter((items) => items.quantity > 0);
-  console.log(products, "filterproduct");
+  console.log(filterProduct, "qqqqqq");
   const calculation = () => {
     let sum = 0;
     let i;
@@ -21,8 +21,16 @@ const Cart = (props) => {
       <div className='cart-items-header'>
         <h1 style={{ marginTop: "0px" }}>Cart Items</h1>
       </div>
-      {products.quantity === 0 ? (
-        <div className='cart-items-empty'>No items are added .</div>
+      {filterProduct.length === 0 ? (
+        <div className='empty-cart-body'>
+          <div>
+            <img
+              style={{ width: "200px", height: "200px" }}
+              src='https://cdn.dribbble.com/users/44167/screenshots/4199208/media/6b915e31225bcd92bee249dc7a977dda.png'
+            />
+            <div className='cart-items-empty'>No items are added .</div>
+          </div>
+        </div>
       ) : (
         <div className='cart-items-body'>
           <div
@@ -34,6 +42,7 @@ const Cart = (props) => {
               borderRadius: "5px",
               padding: "5px",
               borderRadius: " 5px 0px 0px 5px",
+              backgroundColor: "lightgrey",
             }}
           >
             {" "}

@@ -5,7 +5,7 @@ function Header() {
   return (
     <div className='App'>
       <header className='header'>
-        <div>
+        <div style={{ marginLeft: "15px" }}>
           <h1>
             <Link to='/' className='logo'>
               Fashion
