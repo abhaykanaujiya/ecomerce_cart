@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect } from "react";
 import { connect } from "react-redux";
 import {
-  getHomePageData,
+  
   handleAddToCart,
   handleIncrease,
   handleDecrease,
@@ -11,10 +11,7 @@ import {
 import "./productList.css";
 
 function ProductList(props) {
-  useEffect(() => {
-    // props.getHomePageData();
-    console.log(props.productList, "hrll9");
-  }, []);
+ 
 
   const addToCart = (selectedProduct) => {
     props.handleAddToCart(selectedProduct, props.productList, props.cartItems);
@@ -101,7 +98,7 @@ function mapStateToProps({ PdpReducer }) {
 }
 
 export default connect(mapStateToProps, {
-  getHomePageData,
+ 
   handleIncrease,
   handleDecrease,
   handleAddToCart,

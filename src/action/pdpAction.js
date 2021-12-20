@@ -1,33 +1,20 @@
 import {
-  PRODUUCT,
   ADD_TO_CART,
   UPDATE_TO_CART,
   DECREASE_CART_ITEMS,
   SET_QUANTITY,
 } from "../action/ActionConstants";
-import productList from "../components/json/ProductsData.json";
-
-export const getHomePageData = (data) => {
-  return (dispatch) => {
-    const newProductList = [...productList.payload.products].map((data) => ({
-      ...data,
-      quantity: 0,
-    }));
-    console.log(newProductList, "newProductListinitial");
-    dispatch({ type: PRODUUCT, payload: [...newProductList] });
-  };
-};
 
 export const handleAddToCart = (selectedProduct, productList, cartItems) => {
   console.log(productList, cartItems, "handleAddToCart");
   return (dispatch) => {
+    dispatch({ type: "LOADING" });
     let updatedProductList = productList;
     updatedProductList.map((product) => {
       if (product.product_id === selectedProduct.product_id) {
         product.quantity = product.quantity + 1;
       }
     });
-
     dispatch({
       type: ADD_TO_CART,
       payload: {
@@ -40,6 +27,8 @@ export const handleAddToCart = (selectedProduct, productList, cartItems) => {
 
 export const handleIncrease = (selectedProduct, productList, cartItems) => {
   return (dispatch) => {
+    dispatch({ type: "LOADING" });
+
     let updatedNewProduct = productList;
     updatedNewProduct.forEach((item) => {
       if (item.product_id === selectedProduct.product_id) {
@@ -66,6 +55,8 @@ export const handleIncrease = (selectedProduct, productList, cartItems) => {
 export const handleDecrease = (selectedProduct, cartItems) => {
   console.log(selectedProduct, cartItems, "handle Decrease");
   return (dispatch) => {
+    dispatch({ type: "LOADING" });
+
     let updatedCart = cartItems;
     updatedCart.map((item) => {
       if (item.product_id === selectedProduct.product_id) {
@@ -74,7 +65,7 @@ export const handleDecrease = (selectedProduct, cartItems) => {
     });
     dispatch({
       type: DECREASE_CART_ITEMS,
-      payload: {decreaseProductList: [...updatedCart] },
+      payload: { decreaseProductList: [...updatedCart] },
     });
   };
 };
@@ -82,6 +73,8 @@ export const handleDecrease = (selectedProduct, cartItems) => {
 export const handleDecreaseQuantity = (selectedProduct, productList) => {
   console.log("handleDecreaseQuantity", productList);
   return (dispatch) => {
+    dispatch({ type: "LOADING" });
+
     let setQuantity = productList;
     setQuantity.map((product) => {
       if (product.product_id === selectedProduct.product_id) {
