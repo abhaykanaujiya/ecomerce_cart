@@ -1,20 +1,20 @@
 .cart-product-body {
   border: 0px solid rgba(235, 238, 237, 0.966);
   box-shadow: 0 2px 20px rgb(118 112 112 / 10%);
-  margin-bottom: 9px;
+  /* margin-bottom: 9px; */
   border-radius: 2%;
-  padding: 30px;
+  padding: 20px;
   width: 197px;
-  height: 326px;
+  height: 350px;
 }
 
 .render-cards {
   border: 2px solid rgb(247, 242, 247);
   box-shadow: 5px;
   padding: 20px;
-  padding-bottom: 20px;
   display: flex;
   flex-wrap: wrap;
+  height: 85vh;
   justify-content: space-around;
   background-color: rgb(243, 239, 239);
 }
@@ -74,7 +74,7 @@
 }
 
 .active {
-  background-color: azure;
+  background-color: rgb(230, 216, 215);
   color: black;
   font-weight: 400;
 }

@@ -1,6 +1,6 @@
 import React from "react";
-import { useEffect, useState } from "react";
-import { flushSync } from "react-dom";
+import { useState } from "react";
+
 import { connect } from "react-redux";
 import {
   handleAddToCart,
@@ -11,15 +11,13 @@ import {
 import "./productList.css";
 
 const ProductList = (props) => {
-  const [postsPerPage] = useState(5);
+  const [postsPerPage] = useState(10);
   const [posts, setAllPosts] = useState(props.productList);
   const [currentPage, setCurrentPage] = useState(1);
-
   const lastPage = currentPage * postsPerPage;
   const firstPage = lastPage - postsPerPage;
   const currentPost = posts.slice(firstPage, lastPage);
   const pageNumber = [];
-  console.log(currentPost, "posts");
 
   for (let i = 1; i <= Math.ceil(posts.length / postsPerPage); i++) {
     pageNumber.push(i);
@@ -44,7 +42,7 @@ const ProductList = (props) => {
 
   console.log(props.cartItems, props.productList, "product list");
   return (
-    <>
+    <div className="plp-page">
       <div className="render-cards">
         {currentPost?.map((product) => (
           <div className="cart-product-body">
@@ -98,7 +96,14 @@ const ProductList = (props) => {
           </div>
         ))}
       </div>
-      <div style={{ textAlign: "center" }}>
+
+      <div
+        style={{
+          textAlign: "center",
+          padding: "4px",
+          background: "whitesmoke",
+        }}
+      >
         <button
           onClick={() => {
             if (currentPage === 1) return;
@@ -109,12 +114,22 @@ const ProductList = (props) => {
           Previous
         </button>
         {pageNumber.map((elm, index, array) => (
-        // console.log(elm,index,array,"elm")
-          <button id={elm}className={currentPage===elm?"active":null} onClick={(event) => changePage(event)}>{array[index-1]+2<elm? `...${elm}`:elm}</button>
+          <button
+            id={elm}
+            className={currentPage === elm ? "active" : null}
+            onClick={(event) => changePage(event)}
+          >
+            {array[index - 1] + 2 < elm ? `...${elm}` : elm}
+          </button>
         ))}
-        <button onClick={() => setCurrentPage(currentPage + 1)} disabled={currentPage===pageNumber.length?true:false}>Next</button>
+        <button
+          onClick={() => setCurrentPage(currentPage + 1)}
+          disabled={currentPage === pageNumber.length ? true : false}
+        >
+          Next
+        </button>
       </div>
-    </>
+    </div>
   );
 };
 
