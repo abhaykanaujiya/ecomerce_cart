@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import {
   handleAddToCart,
@@ -8,7 +8,11 @@ import {
 } from "../../action/pdpAction";
 import "./pdpList.css";
 
-function ProductList(props) {
+
+const ProductList = (props) => {
+
+
+
   const addToCart = (selectedProduct) => {
     props.handleAddToCart(selectedProduct, props.productList, props.cartItems);
   };
@@ -25,37 +29,38 @@ function ProductList(props) {
       props.cartItems
     );
   };
+  
 
   console.log(props, "product list");
   return (
-    <div className='render-cards'>
+    <div className="render-cards">
       {!props.loading ? (
         <>
           {props.productList?.map((product) => (
-            <div className='cart-product-body'>
+            <div className="cart-product-body">
               <div>
                 <img
-                  className='cart-product-image'
+                  className="cart-product-image"
                   src={product.images}
-                  alt='img'
+                  alt="img"
                 />
 
-                <div className='product-rating-container'>
+                <div className="product-rating-container">
                   {product.supplier_reviews_summary.average_rating}
                 </div>
               </div>
 
-              <div div className='product-detail'>
-                <div className='product-detail-name'>
+              <div div className="product-detail">
+                <div className="product-detail-name">
                   <div>{product.name}</div>
                 </div>
-                <div className='product-detail-price'>{product.price}</div>
+                <div className="product-detail-price">{product.price}</div>
               </div>
-              <div className='button-header'>
+              <div className="button-header">
                 <span>
                   {product.quantity === 0 ? (
                     <button
-                      className='button'
+                      className="button"
                       onClick={() => addToCart(product)}
                     >
                       Add to cart
@@ -63,7 +68,7 @@ function ProductList(props) {
                   ) : (
                     <>
                       <button
-                        className='button-decrease'
+                        className="button-decrease"
                         onClick={
                           product.quantity > 1
                             ? () => decreaseCartItems(product)
@@ -74,7 +79,7 @@ function ProductList(props) {
                       </button>
                       {product.quantity}
                       <button
-                        className='button-increase'
+                        className="button-increase"
                         onClick={() => increaseCartItem(product)}
                       >
                         +
@@ -83,7 +88,10 @@ function ProductList(props) {
                   )}
                 </span>
               </div>
+          
             </div>
+  
+            
           ))}
         </>
       ) : (

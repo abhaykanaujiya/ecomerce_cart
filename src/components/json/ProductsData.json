@@ -45,6 +45,92 @@
         }
       },
       {
+        "product_id": "9zui2",
+        "name": " mirror lace net embroidery work saree",
+        "slug": "mirror-lace-net-embroidery-work-saree",
+        "price": 518,
+        "original_price": 518,
+        "transient_price": 418,
+        "discount": 19,
+        "quantity": 0,
+        "images": [
+          "https://images.meesho.com/images/products/16789034/382e4_512.jpg"
+        ],
+        "assured_details": {
+          "is_assured": false,
+          "message": "Best quality products from trusted suppliers."
+        },
+        "similar_designs": 6,
+        "review_summary": {
+          "average_rating": 4.1,
+          "rating_count_map": { "1": 8, "2": 4, "3": 4, "4": 7, "5": 41 },
+          "review_count": 27,
+          "rating_count": 64
+        },
+        "minimum_product_price": 518,
+        "supplier_reviews_summary": {
+          "rating_count_map": {
+            "1": 79105,
+            "2": 51864,
+            "3": 106961,
+            "4": 182370,
+            "5": 379550
+          },
+          "average_rating": 3.9,
+          "rating_scale": 5,
+          "review_count": 375478,
+          "rating_count": 799850
+        },
+        "shipping": { "charges": 0, "discount": 70 },
+        "promo_offer": {
+          "name": "1st Order Discount",
+          "discount_text": "₹100 discount on 1st order"
+        }
+      },
+      {
+        "product_id": "9zui2",
+        "name": " mirror lace net embroidery work saree",
+        "slug": "mirror-lace-net-embroidery-work-saree",
+        "price": 518,
+        "original_price": 518,
+        "transient_price": 418,
+        "discount": 19,
+        "quantity": 0,
+        "images": [
+          "https://images.meesho.com/images/products/16789034/382e4_512.jpg"
+        ],
+        "assured_details": {
+          "is_assured": false,
+          "message": "Best quality products from trusted suppliers."
+        },
+        "similar_designs": 6,
+        "review_summary": {
+          "average_rating": 4.1,
+          "rating_count_map": { "1": 8, "2": 4, "3": 4, "4": 7, "5": 41 },
+          "review_count": 27,
+          "rating_count": 64
+        },
+        "minimum_product_price": 518,
+        "supplier_reviews_summary": {
+          "rating_count_map": {
+            "1": 79105,
+            "2": 51864,
+            "3": 106961,
+            "4": 182370,
+            "5": 379550
+          },
+          "average_rating": 3.9,
+          "rating_scale": 5,
+          "review_count": 375478,
+          "rating_count": 799850
+        },
+        "shipping": { "charges": 0, "discount": 70 },
+        "promo_offer": {
+          "name": "1st Order Discount",
+          "discount_text": "₹100 discount on 1st order"
+        }
+      },
+      {
         "product_id": "q3f4s",
         "name": " New Latest Mirror Work Sarees",
         "slug": "new-latest-mirror-work-sarees",
